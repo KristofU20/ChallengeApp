@@ -2,6 +2,7 @@
 using ChallengeApp;
 
 var employee = new Employee("Jan", "Mazoch");
+employee.AddGrade(5);
 employee.AddGrade(2);
 employee.AddGrade(4);
 employee.AddGrade(6);
