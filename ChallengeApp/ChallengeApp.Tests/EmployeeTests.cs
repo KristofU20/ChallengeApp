@@ -9,15 +9,15 @@ namespace ChallengeApp.Tests
         {
             //arrange
             var employee = new Employee("Jan", "Mazoch");
-            employee.AddGrade(2);
             employee.AddGrade(4);
-            employee.AddGrade(6);
+            employee.AddGrade('d');
+            employee.AddGrade('e');
             // act
             var statistics = employee.GetStatistics();
 
 
             // assert
-            Assert.AreEqual(2, statistics.Min);
+            Assert.AreEqual(4, statistics.Min);
         }
 
 
@@ -26,15 +26,15 @@ namespace ChallengeApp.Tests
         {
             //arrange
             var employee = new Employee("Jan", "Mazoch");
-            employee.AddGrade(2);
-            employee.AddGrade(4);
-            employee.AddGrade(6);
+            employee.AddGrade(25);
+            employee.AddGrade('C');
+            employee.AddGrade("D");
             // act
             var statistics = employee.GetStatistics();
 
 
             // assert
-            Assert.AreEqual(6, statistics.Max);
+            Assert.AreEqual(60, statistics.Max);
 
         }
 
@@ -44,15 +44,15 @@ namespace ChallengeApp.Tests
         {
             //arrange
             var employee = new Employee("Jan", "Mazoch");
-            employee.AddGrade(2);
-            employee.AddGrade(4);
-            employee.AddGrade(6);
+            employee.AddGrade(20);
+            employee.AddGrade('a');
+            employee.AddGrade('C');
             // act
             var statistics = employee.GetStatistics();
 
 
             // assert
-            Assert.AreEqual(4, statistics.Average);
+            Assert.AreEqual(60, statistics.Average);
 
         }
     }
