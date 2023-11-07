@@ -8,19 +8,6 @@ Console.WriteLine();
 
 var employee = new Employee("Jan","Mazoch");
 
-try
-{
-    Employee emp = null;
-    var name = emp.Surname;
-}
-catch(Exception exception)
-{
-    Console.WriteLine(exception.Message);
-}
-finally
-{
-    Console.WriteLine("Finally here");
-}
 
 
 while (true)
