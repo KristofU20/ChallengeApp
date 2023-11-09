@@ -1,22 +1,21 @@
 ﻿
 
-using System.Diagnostics;
-
 namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class Supervisor : IEmployee
+
     {
         private List<float> grades = new List<float>();
 
-        
-        public Employee( string name, string surname, char sex)
-            
+
+        public Supervisor(string name, string surname, char sex)
+
         {
             this.Name = name;
             this.Surname = surname;
-            this.Sex = sex; 
+            this.Sex = sex;
         }
-            
+
 
         public string Name { get; private set; }
 
@@ -40,16 +39,75 @@ namespace ChallengeApp
 
         public void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float result))
+            switch (grade)
             {
-                this.AddGrade(result);
-            }
-            else
-            {
-                throw new Exception("String is not float");
+                case "6":
+                    AddGrade(100);
+                    break;
+                case "6-":
+                case "-6":
+                    AddGrade(95);
+                    break;
+                case "5+":
+                case "+5":
+                    AddGrade(85);
+                    break;
+                case "5":
+                    AddGrade(80);
+                    break;
+                case "5-":
+                case "-5":
+                    AddGrade(75);
+                    break;
+                case "4+":
+                case "+4":
+                    AddGrade(65);
+                    break;
+                case "4":
+                    AddGrade(60);
+                    break;
+                case "4-":
+                case "-4":
+                    AddGrade(55);
+                    break;
+                case "3+":
+                case "+3":
+                    AddGrade(45);
+                    break;
+                case "3":
+                    AddGrade(40);
+                    break;
+                case "3-":
+                case "-3":
+                    AddGrade(35);
+                    break;
+                case "2+":
+                case "+2":
+                    AddGrade(25);
+                    break;
+                case "2":
+                    AddGrade(20);
+                    break;
+                case "2-":
+                case "-2":
+                    AddGrade(15);
+                    break;
+                case "1":
+                    AddGrade(0);
+                    break;
 
+                default:
+                    if (float.TryParse(grade, out float result))
+                    {
+                        this.AddGrade(result);
+                    }
+                    else
+                    {
+                        throw new Exception("String is not float");
+                    }
+                    break;
             }
-           
+        
         }
 
         public void AddGrade(double grade)
@@ -72,7 +130,7 @@ namespace ChallengeApp
 
         public void AddGrade(char grade)
         {
-            switch(grade)
+            switch (grade)
             {
                 case 'A':
                 case 'a':
@@ -87,7 +145,7 @@ namespace ChallengeApp
                     AddGrade(60);
                     break;
                 case 'D':
-                case 'd':   
+                case 'd':
                     AddGrade(40);
                     break;
                 case 'E':
@@ -96,10 +154,10 @@ namespace ChallengeApp
                     break;
                 default:
                     throw new Exception("Wrong Letter");
-                    
+
             }
         }
-                
+
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
@@ -116,7 +174,7 @@ namespace ChallengeApp
 
             statistics.Average = statistics.Average / this.grades.Count;
 
-            switch(statistics.Average)
+            switch (statistics.Average)
             {
                 case var average when average >= 80:
                     statistics.AverageLetter = 'A';
@@ -140,3 +198,6 @@ namespace ChallengeApp
     }
 
 }
+
+    
+
