@@ -6,8 +6,10 @@ Console.WriteLine("Witamy w Programie XYZ do oceny Pracowników");
 Console.WriteLine("===========================================");
 Console.WriteLine();
 
-var employee = new Employee("Jan","Mazoch");
-
+var employee = new EmployeeInFile("Jan","Mazoch", 'M');
+employee.AddGrade(56);
+employee.AddGrade(35);
+employee.AddGrade(42);
 
 
 while (true)
